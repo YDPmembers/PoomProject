@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-커뮤니티 추가 포스트
-</body>
-</html>
+<jsp:include page="../include/header.jsp"></jsp:include>
+커뮤니티 리스트
+<jsp:include page="../include/footer.jsp"></jsp:include>
