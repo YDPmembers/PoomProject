@@ -35,7 +35,7 @@ public class RehomeAddDTO {
    //나이
    int age;
    //중성화여부
-   int nuet;
+   int neut;
    //분양가
    int cost;
    //내용
@@ -141,10 +141,10 @@ public class RehomeAddDTO {
       this.age = age;
    }
    public int getNuet() {
-      return nuet;
+      return neut;
    }
-   public void setNuet(int nuet) {
-      this.nuet = nuet;
+   public void setNuet(int neut) {
+      this.neut = neut;
    }
    public int getCost() {
       return cost;
@@ -210,7 +210,7 @@ public class RehomeAddDTO {
       return "RehomeAddDTO [type_b=" + type_b + ", bno=" + bno + ", rno=" + rno + ", mno=" + mno + ", title=" + title
             + ", id_writer=" + id_writer + ", img_r1=" + img_r1 + ", img_r2=" + img_r2 + ", img_r3=" + img_r3
             + ", img_r4=" + img_r4 + ", img_r5=" + img_r5 + ", cat_r=" + cat_r + ", gender=" + gender + ", vac="
-            + vac + ", age=" + age + ", nuet=" + nuet + ", cost=" + cost + ", cont_b=" + cont_b + ", cre_date_b="
+            + vac + ", age=" + age + ", neut=" + neut + ", cost=" + cost + ", cont_b=" + cont_b + ", cre_date_b="
             + cre_date_b + ", mod_date_b=" + mod_date_b + ", viewcnt="
             + viewcnt + ", likecnt=" + likecnt + ", reportcnt=" + reportcnt + ", stmt_b=" + stmt_b + "]";
    }
