@@ -41,10 +41,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                  <c:forEach items="${rehomeList}" var="rehomeList">                  
-                      <td><a href='get?title=<c:out value="${rehomeList.title }" />' ><c:out value="${rehomeList.title }" /></td>
-                      <td><c:out value="${rehomeList.mno }" /></a></td>
+                  <tr>       
+                  <c:forEach items="${rehomeList}" var="rehomeList">
+                              
+                      <td><a href='get?title=<c:out value="${rehomeList.mno }" />' ><c:out value="${rehomeList.mno }" /></td>
+                      <td><a href='get?title=<c:out value="${rehomeList.title }" />' ><c:out value="${rehomeList.title }" /></a></td>
                       <td><c:out value="${rehomeList.id_writer }" /></td>
                       <td><fmt:formatDate pattern="yyyy-MM-dd" value="${rehomeList.cre_date_b }" /></td>
                       <td><fmt:formatDate pattern="yyyy-MM-dd" value="${rehomeList.mod_date_b }" /></td>
