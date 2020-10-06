@@ -29,12 +29,12 @@ public class RegisterPerDTO {
 	//수정일
 	Date mod_date_m;
 	//회원상태
-	boolean stmt_m;
+	int stmt_m;
 	
 	//관심 분야
 	int fav;
 	//애완동물 유무
-	boolean pet;
+	int pet;
 	
 	
 	// Getter & Setter
@@ -110,10 +110,10 @@ public class RegisterPerDTO {
 	public void setMod_date_m(Date mod_date_m) {
 		this.mod_date_m = mod_date_m;
 	}
-	public boolean isStmt_m() {
+	public int getStmt_m() {
 		return stmt_m;
 	}
-	public void setStmt_m(boolean stmt_m) {
+	public void setStmt_m(int stmt_m) {
 		this.stmt_m = stmt_m;
 	}
 	public int getFav() {
@@ -122,10 +122,10 @@ public class RegisterPerDTO {
 	public void setFav(int fav) {
 		this.fav = fav;
 	}
-	public boolean isPet() {
+	public int getPet() {
 		return pet;
 	}
-	public void setPet(boolean pet) {
+	public void setPet(int pet) {
 		this.pet = pet;
 	}
 	

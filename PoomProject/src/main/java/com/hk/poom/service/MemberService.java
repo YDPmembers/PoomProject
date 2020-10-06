@@ -30,6 +30,14 @@ public class MemberService {
 		return retVal;
 	}
 
+	public LoginDTO idDupChk( String id ) {
+		return memberMapper.idDupChk( id );
+	}
+	
+	public LoginDTO emailDupChk( String email ) {
+		return memberMapper.emailDupChk( email );
+	}
+
 	public FindIdDTO memberFindId( FindIdDTO findIdDTO ) {
 		return memberMapper.memberFindId( findIdDTO );
 	}
