@@ -1,6 +1,10 @@
 package com.hk.poom.controller;
 
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hk.poom.dto.FindIdDTO;
+import com.hk.poom.dto.LoginDTO;
 import com.hk.poom.dto.RegisterPerDTO;
 import com.hk.poom.service.MemberService;
 
@@ -22,6 +27,9 @@ public class MemberController {
 
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	ServletContext sc;
 	
 	@GetMapping("/poom/register/com")
 	public String registerCom( ) {
@@ -67,23 +75,38 @@ public class MemberController {
 	
 	@GetMapping("/poom/login")
 	public String login( ) {
-		
+		logger.info("MemberController_Get_/poom/login 실행");
 		
 		return "member/login";
 	}
 	
 	@PostMapping("/poom/login")
-	public String loginPost( ) {
+	public String loginPost( HttpServletRequest request, HttpSession session, LoginDTO loginDTO ) {
+		logger.info("MemberController_Post_/poom/login 실행");
+		logger.info("로그인할 member = " + loginDTO.toString());
 		
-		//로그인 성공시 홈으로
+		LoginDTO loginMember = memberService.memberLogin( loginDTO );
+		if ( loginMember!= null ) {
+			logger.info("로그인 성공");
+			
+			session.setAttribute("loginMember", loginMember);
+			
+			//로그인 성공시 홈으로
+			return "home";
+		} else {
+			logger.info("로그인 실패");
+			
+			//로그인 실패시
+			return "member/loginFail";
+		}
 		
-		//로그인 실패시
-		return "member/loginFail";
 	}
 	
 	@GetMapping("/poom/logout")
-	public String logout( ) {
+	public String logout( HttpSession session ) {
+		logger.info("MemberController_Get_/poom/logout 실행");
 		
+		session.invalidate();
 		
 		return "member/logout";
 	}
