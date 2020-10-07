@@ -17,7 +17,7 @@
 			//alert("idDupChk = " + idDupChk);
 			
 			$.ajax({
-				url : '/poom/register/new/idDupChk',
+				url : '/poom/register/idDupChk',
 				data : {
 					id : idDupChk
 				},
@@ -55,7 +55,7 @@
 			//alert("emailDupChk = " + emailDupChk);
 			
 			$.ajax({
-				url : '/poom/register/new/emailDupChk',
+				url : '/poom/register/emailDupChk',
 				data : {
 					email : emailDupChk
 				},
