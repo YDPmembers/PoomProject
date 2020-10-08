@@ -73,8 +73,5 @@ public class RehomeController {
       return "rehome/rehomeList";
    }
    
-   @RequestMapping("/getBoardList.do")
-	public String getBoardList(SearchDTO SearchDto, Model model) {
-
-}
+   
 }
