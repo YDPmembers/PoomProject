@@ -47,7 +47,8 @@
                       <th>관심수</th>
                       <th>작성일</th>
                       <th>수정일</th>
-                      <th>관리</th>
+                      <th>수정</th>
+                      <th>삭제</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -59,18 +60,17 @@
                           <c:when test="${rehomeList.cat_r eq '1' }">고양이</c:when></c:choose> </td>
                         <td><c:out value="${rehomeList.bno }" /></td>
                       <td><c:out value="${rehomeList.rno }" /></td>
-                       <td><a href='update?bno=<c:out value="${rehomeList.bno }" />' ><c:out value="${rehomeList.title }" /></a></td>
+                       <td><c:out value="${rehomeList.title }" /></a></td>
                       <td><c:out value="${rehomeList.id_writer }" /></td>
                       <td><c:out value="${rehomeList.img_r1 }" /></td>
                       <td><c:out value="${rehomeList.gender }" /></td>
                       <td><c:out value="${rehomeList.age }" /></td>
-                      <td><c:out value="${rehomeList.cost }" /></td>
-                     
+                      <td><c:out value="${rehomeList.cost }" /></td>                     
                       <td><c:out value="${rehomeList.viewcnt }" /></td>
-                      <td><c:out value="${rehomeList.likecnt }" /></td>
-                      
+                      <td><c:out value="${rehomeList.likecnt }" /></td>                      
                       <td><fmt:formatDate pattern="yyyy-MM-dd" value="${rehomeList.cre_date_b }" /></td>
                       <td><fmt:formatDate pattern="yyyy-MM-dd" value="${rehomeList.mod_date_b }" /></td>
+                      <td><a href='update?bno=<c:out value="${rehomeList.bno}" />' ><c:out value="수정" /></a></td>
                       <td><a href='delete?bno=<c:out value="${rehomeList.bno}" />' ><c:out value="삭제" /></a></td>
                     </tr>
                     </c:forEach>
