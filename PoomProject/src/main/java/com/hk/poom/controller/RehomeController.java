@@ -5,18 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import org.springframework.web.bind.annotation.RequestParam;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
-
 import com.hk.poom.dto.RehomeAddDTO;
-
 import com.hk.poom.dto.RehomeUpdateDTO;
-
-import com.hk.poom.dto.SearchDTO;
-
 import com.hk.poom.service.RehomeService;
 
 @Controller
@@ -84,7 +76,6 @@ public class RehomeController {
       return "redirect:/poom/rehome/list";
    }
 
-
 }
    
    
@@ -101,9 +92,4 @@ public class RehomeController {
    
    
    
-
-
-   
-   
-
 
