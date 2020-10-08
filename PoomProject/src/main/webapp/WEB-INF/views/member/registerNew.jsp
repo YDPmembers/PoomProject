@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>신규 회원가입</title>
+<jsp:include page="../include/inHead.jsp"></jsp:include>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script>
@@ -59,10 +60,10 @@
 				data : {
 					email : emailDupChk
 				},
-					dataType : 'text', /*html, text, json, xml, script*/
+					dataType : 'text',
 					method : 'post',
 					success : function(data) {
-						alert("emailDupChk ajax 성공");
+						//alert("emailDupChk ajax 성공");
 					
 						if ( data==0 ) {
 							//alert("중복되지 않은 email");
@@ -114,16 +115,16 @@
 </head>
 <jsp:include page="../include/header.jsp"></jsp:include>
 
-	<form action="new" method="post" id="registerNewForm">
-		아이디 (자동 중복체크) : 
+	<form action="new" method="post" id="registerNewForm" enctype="multipart/form-data">
+		아이디 : 
 			<input type="text" name="id" id="idDupChk"><br />
 			<input type="hidden" id="idDupChkRet"><br />
 		비밀번호 : 
 			<input type="password" id="pwd"><br />
-		비밀번호 확인 (자동) : 
+		비밀번호 확인 : 
 			<input type="password" name="pwd" id="pwdMatChk"><br />
 			<input type="hidden" id="pwdMatChkRet"><br />
-		이메일 (자동 중복체크) : 
+		이메일 : 
 			<input type="email" name="email" id="emailDupChk"><button>본인인증</button><br />
 			<input type="hidden" id="emailDupChkRet"><br />
 		이름 : 
@@ -134,10 +135,8 @@
 			<input type="tel" name="tel"><br />
 		멘트 : 
 			<input type="text" name="ment"><br />
-<!-- 		프로필 사진(타입이 파일) : 
-				<input type="file" name="prof"><button>업로드?</button><br /> -->
-<!-- 		프로필 사진(타입이 이미지) : 
-				<input type="image" name="prof"><button>업로드?</button><br /> -->
+ 		프로필 사진 : 
+			<input type="file" name="prof"><button>업로드?</button><br />
 		관심 분야 : 
 			<select form="registerNewForm" name="fav">
         		<option value="0">선택안함</option>
