@@ -11,6 +11,8 @@
 </head>
 <jsp:include page="../include/header.jsp"></jsp:include>
 
+
+
     <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
@@ -23,7 +25,7 @@
           <h1 class="h3 mb-2 text-gray-800">FAQ</h1>
           <p class="mb-4">게시물 리스트
           &nbsp;&nbsp;&nbsp;<a href="add">등록</a>
-          
+
           </p>
 
           <!-- DataTales Example -->
