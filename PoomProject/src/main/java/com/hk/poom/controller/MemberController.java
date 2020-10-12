@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.hk.poom.dto.FindIdDTO;
 import com.hk.poom.dto.LoginDTO;
 import com.hk.poom.dto.ProfUploadDTO;
+import com.hk.poom.dto.RegisterComDTO;
 import com.hk.poom.dto.RegisterPerDTO;
 import com.hk.poom.service.MemberService;
 
@@ -48,9 +49,10 @@ public class MemberController {
 	}
 	
 	@PostMapping("/poom/register/com")
-	public String registerComPost( ) {
+	public String registerComPost(Model model, RegisterComDTO registerComDTO,  @RequestParam("name") String name) {
 		
-		
+		memberService.memberRegisterCom(registerComDTO);
+		model.addAttribute("name", name);
 		return "member/registerComPost";
 	}
 	
