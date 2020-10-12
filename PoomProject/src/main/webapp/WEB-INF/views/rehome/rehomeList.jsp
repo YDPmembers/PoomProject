@@ -2,16 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Rehome List</title>
-<jsp:include page="../include/inHead.jsp"></jsp:include>
+
 </head>
 <jsp:include page="../include/header.jsp"></jsp:include>
-
-
 
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -25,7 +24,7 @@
           <h1 class="h3 mb-2 text-gray-800">FAQ</h1>
           <p class="mb-4">게시물 리스트
           &nbsp;&nbsp;&nbsp;<a href="add">등록</a>
-
+          
           </p>
 
           <!-- DataTales Example -->
@@ -64,7 +63,7 @@
                           <c:when test="${rehomeList.cat_r eq '1' }">고양이</c:when></c:choose> </td>
                         <td><c:out value="${rehomeList.bno }" /></td>
                       <td><c:out value="${rehomeList.rno }" /></td>
-                       <td><c:out value="${rehomeList.title }" /></a></td>
+                       <td><c:out value="${rehomeList.title }" /></td>
                       <td><c:out value="${rehomeList.id_writer }" /></td>
                       <td><c:out value="${rehomeList.img_r1 }" /></td>
                       <td><c:out value="${rehomeList.gender }" /></td>
@@ -76,9 +75,12 @@
                       <td><fmt:formatDate pattern="yyyy-MM-dd" value="${rehomeList.mod_date_b }" /></td>
                       <td><a href='update?bno=<c:out value="${rehomeList.bno}" />' ><c:out value="수정" /></a></td>
                       <td><a href='delete?bno=<c:out value="${rehomeList.bno}" />' ><c:out value="삭제" /></a></td>
-                       <td><a href='report?bno=<c:out value="${rehomeList.bno}" />' ><c:out value="신고" /></a></td>
+                       <td><a href="#" onClick="window.open('report?bno=<c:out value="${rehomeList.bno}"  />','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');"><c:out value="신고" /></a></td>
                        
                     </tr>
+                    <!-- <script language="javascript">
+  function popup() { window.open("report", "a", "width=400, height=300, left=100, top=50"); }
+  </script> -->
                     </c:forEach>
                   </tbody>
                 </table>
