@@ -221,7 +221,7 @@ $(document).on("click", "#emailBtn", function(){
 	         method: "post",
 	         url: "/poom/createEmailCheck",
 	         success : function(data){
-	            if(data==null){
+	            if(data==false){
 	               alert("이메일을 입력해주세요");
 	            }else{
 	               alert("이메일이 발송되었습니다. 인증번호 확인 후 입력해주세요");
