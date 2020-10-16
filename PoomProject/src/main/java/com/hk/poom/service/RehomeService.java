@@ -23,11 +23,6 @@ public class RehomeService {
 		return rehomeMapper.rehomeList( );
 	}
 
-   
-	public int rehomeAdd( RehomeAddDTO rehomeAddDTO ) {
-		return rehomeMapper.rehomeAdd( rehomeAddDTO );
-	}
-
 	public RehomeUpdateDTO rehomeGetOne( int bno ) {
 		return rehomeMapper.rehomeGetOne( bno );
 	}

@@ -58,12 +58,13 @@ public class RehomeController {
 //   }
    
  @GetMapping("/poom/rehome/add")
- public String rehomeAdd(Model model) throws Exception{
+ public String rehomeAdd(Model model, RehomeAddDTO rehomeAddDTO) throws Exception{
     logger.info("카테고리불러와야해");
     
     List<CategoryDTO> category =null;
     category = rehomeService.category();
     model.addAttribute("category",JSONArray.fromObject(category));
+ 
     logger.info("category" + model);
     
     
@@ -127,7 +128,7 @@ public class RehomeController {
    		}
        }
 
-      model.addAttribute("rehomeaddPost",rehomeAddDTO);   
+      model.addAttribute("rehomeAddPost",rehomeAddDTO);   
 	   rehomeService.rehomeAddPost(rehomeAddDTO);
     
     String cateName = rehomeService.rehomeCateName(cateCode);

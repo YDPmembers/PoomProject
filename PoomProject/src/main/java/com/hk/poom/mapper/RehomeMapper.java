@@ -15,7 +15,6 @@ import com.hk.poom.dto.RehomeUpdateDTO;
 public interface RehomeMapper {
 
 	public List<RehomeAddDTO> rehomeList( );
-	public int rehomeAdd( RehomeAddDTO rehomeAddDTO );
 	public RehomeUpdateDTO rehomeGetOne( int bno );
 	public int rehomeUpdate( RehomeUpdateDTO rehomeUpdateDTO );
 	public int rehomeUpdate1( RehomeUpdateDTO rehomeUpdateDTO );
