@@ -136,7 +136,7 @@ public class MemberController {
 	 	String realPath = sc.getRealPath("/resources/prof/");
 		String dbSaveName = "";
 		if ( prof.isEmpty() ) {	// 회원 가입할 때 프로필 사진을 업로드하지 않음 -> 기본 이미지를 prof 아래에 넣어놓고, 그 파일명을 기본값으로 넣어줌
-			dbSaveName = "baseProf.jpg";
+			dbSaveName = "/resources/prof/baseProf.jpg";
 		} else {	// 회원 가입할 때 프로필 사진을 업로드함
 			dbSaveName = nowTime + prof.getOriginalFilename().substring(prof.getOriginalFilename().lastIndexOf("."));	// 업로드시간.확장자
 			//logger.info("dbSaveName = " + dbSaveName);
@@ -155,13 +155,19 @@ public class MemberController {
 			}
 		}
 		// 2) 수정된 파일 이름으로 DB에 저장하기
+//		registerPerDTO.setProf(dbSaveName);
 		ProfUploadDTO profUploadDTO = new ProfUploadDTO();
 		profUploadDTO.setMno(registerPerDTO.getMno());
-		profUploadDTO.setDbSaveName(dbSaveName);
+		String realDbSave = "/resources/prof/" + dbSaveName;
+		profUploadDTO.setDbSaveName(realDbSave);
 		memberService.profUpload(profUploadDTO);
 		// Post.jsp에서 해당 이미지를 출력할 수 있게.. /resources로 시작하는 경로를 model에 저장해놓기
-		model.addAttribute("prof", "/resources/prof/" + dbSaveName);
+		model.addAttribute("prof", realDbSave);
 
+//		// 입력받은 회원 정보 저장
+//		memberService.memberRegisterPer(registerPerDTO);
+//		model.addAttribute("name", name);
+		
 		return "member/registerNewPost";
 	}
 	
@@ -204,6 +210,13 @@ public class MemberController {
 		session.invalidate();
 		
 		return "member/logout";
+	}
+	
+	@GetMapping("/poom/login/kakao")
+	public String loginKakao() {
+		logger.info("MemberController_Get_/poom/login/kakao 실행");
+		
+		return "member/kakaoLogin";
 	}
 	
 	

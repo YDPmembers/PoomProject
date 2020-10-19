@@ -57,10 +57,6 @@
 	SELECT * FROM MEMBER WHERE NAME=#{name} AND EMAIL=#{email}
 </select>
 
-<select id="memberFindPwd" resultType="com.hk.poom.dto.FindPwdDTO">
-	SELECT * FROM MEMBER WHERE NAME=#{name} AND EMAIL=#{email} AND ID=#{id}
-</select>
-
 <insert id="addEmailCheck" parameterType="com.hk.poom.dto.EmailCheck">
 	insert into EMAILCHECK(EMAIL,CODE) 
 	VALUES(#{email},#{code})
@@ -77,6 +73,5 @@
 <update id="memberPwdUpdate" >
 	update member set pwd=#{pwd} where id=#{id}
 </update>
-
 
 </mapper>
