@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>rehome add post</title>
+<title>Insert title here</title>
 <jsp:include page="../include/inHead.jsp"></jsp:include>
 </head>
 <jsp:include page="../include/header.jsp"></jsp:include>
-<p>등록이 완료되었습니다.</p>
-<a href='list'>리스트로</a>
+<p>결제 성공</p>
+<a href="list">리스트로 가기</a>
 <jsp:include page="../include/footer.jsp"></jsp:include>

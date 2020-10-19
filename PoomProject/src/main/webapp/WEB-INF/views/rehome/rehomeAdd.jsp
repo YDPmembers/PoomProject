@@ -48,20 +48,15 @@
   
   분양가<input type="text" name="cost"><br>
   분양글번호<input type="text" name="rno"><br>
-  <!-- 글쓴이 정보 -->
-  회원번호<input type="text" name="mno" value="${loginMember.mno}" readonly><br>
-  회원아이디 (글쓴이)<input type="text" name="id_writer" value="${loginMember.id}" readonly><br>
-  회원이메일<input type="text" name="email" value="${loginMember.email}" readonly><br>
-  회원이름<input type="text" name="name" value="${loginMember.name}" readonly><br>
-  
+  회원번호<input type="text" name="mno"><br>
   좋아요수<input type="text" name="likecnt"><br>
   회원상태<input type="text" name="stmt_b"><br>
   제목<input type="text" name="title"><br>
-<!--   글쓴이<input type="text" name="id_writer"><br> -->
+  글쓴이<input type="text" name="id_writer"><br>
   <textarea id="cont_b" name="cont_b" rows="20" cols="100">
  
   </textarea><br>
-   파일 업로드 : <input type="file" name="file" multiple="multiple"><br>
+   사진 첨부 : <input type="file" name="file" multiple="multiple"><br>
   
   <input type="submit" value="확인">
   <input type='reset' value="취소"><br>
@@ -73,6 +68,7 @@
 
 
 <script>
+
 // 컨트롤러에서 데이터 받기
 var jsonData = JSON.parse('${category}');
 console.log(jsonData);
@@ -95,19 +91,16 @@ for(var i = 0; i < jsonData.length; i++) {
 var cate1Select = $("select.category1")
 
 for(var i = 0; i < cate1Arr.length; i++) {
-	if ( i==0 ) {
-		cate1Select.append("<option selected value='" + cate1Arr[i].cateCode + "'>"
-			      + cate1Arr[i].cateName + "</option>");
-	} else {
+	if(i==0){cate1Select.append("<option selected value='" + cate1Arr[i].cateCode + "'>"
+		      + cate1Arr[i].cateName + "</option>"); 
+	}else{
+
 		cate1Select.append("<option value='" + cate1Arr[i].cateCode + "'>"
-			      + cate1Arr[i].cateName + "</option>");
+			      + cate1Arr[i].cateName + "</option>"); 
 	}
-  
 }
 
-
-
-$(document).on("change", "select.category1", function(){
+$(document).ready( function(){
 
  var cate2Arr = new Array();
  var cate2Obj = new Object();
@@ -134,12 +127,12 @@ $(document).on("change", "select.category1", function(){
  }
  */
  
- cate2Select.children().remove();
+ //cate2Select.children().remove();
 
  $("option:selected", this).each(function(){
   
   var selectVal = $(this).val();  
-  cate2Select.append("<option value=''>전체</option>");
+  //cate2Select.append("<option value=''>전체</option>");
   
   for(var i = 0; i < cate2Arr.length; i++) {
    if(selectVal == cate2Arr[i].cateCodeRef) {
@@ -151,6 +144,7 @@ $(document).on("change", "select.category1", function(){
  });
  
 });
+
 </script>
 
 <jsp:include page="../include/footer.jsp"></jsp:include>
