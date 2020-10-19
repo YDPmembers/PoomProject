@@ -48,7 +48,7 @@
 					<c:forEach items="${rehomeList}" var="rehomeList">
 						<div class="col-md-4">
 							<div class="card mb-4 shadow-sm">
-								<img src="/resources/img/rehome/${rehomeList.img_r1 }" onerror="this.style.display='none'" width="200" height="200" />
+								<img src="/resources/img/rehome/${rehomeList.img_r1 }" onerror="this.style.display='/recources/img/none.png'" width="200" height="200" />
 								
 								<div class="card-body">
 									<p class="card-text"><c:out value="${rehomeList.title}" />/<c:out value="${rehomeList.cateName}" />/<c:out value="${rehomeList.age}" />/<c:out value="${rehomeList.cost}" /> </p>
