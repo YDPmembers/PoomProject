@@ -168,6 +168,15 @@ public class RehomeController {
    public String rehomePay() {
 	   return "rehome/pay";
    }
+   @GetMapping("/poom/rehome/paySuccess")
+   public String rehomePaySuccess() {
+	   return "rehome/paySuccess";
+   }
+   
+   @GetMapping("/poom/rehome/payFail")
+   public String rehomePayFail() {
+	   return "rehome/payFail";
+   }
    
    
    

@@ -107,7 +107,7 @@ for(var i = 0; i < cate1Arr.length; i++) {
 
 
 
-$(document).on("change", "select.category1", function(){
+$(document).ready( function(){
 
  var cate2Arr = new Array();
  var cate2Obj = new Object();
@@ -134,12 +134,12 @@ $(document).on("change", "select.category1", function(){
  }
  */
  
- cate2Select.children().remove();
+ //cate2Select.children().remove();
 
  $("option:selected", this).each(function(){
   
   var selectVal = $(this).val();  
-  cate2Select.append("<option value=''>전체</option>");
+  //cate2Select.append("<option value=''>전체</option>");
   
   for(var i = 0; i < cate2Arr.length; i++) {
    if(selectVal == cate2Arr[i].cateCodeRef) {
