@@ -408,7 +408,7 @@
 <!-- 회원 요약 정보 -->
 <div id="myInfo">
 	<h1>[ ${myInfo.name}님의 회원 정보 ]</h1>
-	<img style="border-radius:20px" onerror="this.src='/resources/img/testImg.jpg'" src="${myProf}" width="140px" height="200px">
+	<img style="border-radius:20px" onerror="this.src='/resources/img/testImg.jpg'" src="${uploadeddFile.dbSaveName}" width="140px" height="200px">
 	<p>이름 : ${myInfo.name}</p>
 	<p>아이디 : ${myInfo.id}</p>
 	<p>이메일 : ${myInfo.email}</p>
@@ -438,7 +438,7 @@
 					<input type="password" id="pwd" value="${myInfo.pwd}" placeholder="비밀번호" oninput="checkPwd()">
 					 <div class="validation" id="pwdRet" style="font-size: 15px;"></div></div>
 				<div><label><b>비밀번호 확인 : </b></label>
-					<input type="password" name="pwd" id="pwdMatChk" placeholder="비밀번호 재입력" oninput="reCheckPwd()">
+					<input type="password" name="pwd" id="pwdMatChk" placeholder="비밀번호 재입력" oninput="reCheckPwd()" required>
 					<div class="validation" id="pwdMatChkRet" style="font-size: 15px;"></div></div>
 				<div><label><b>이메일 : </b></label>
 					<input type="email" name='email' id="emailDupChk" value="${myInfo.email}" placeholder="이메일" oninput="chcekEmail()">
@@ -455,7 +455,7 @@
             		<input type="text" id="extraAddress" value="${myInfo.extraAddr}" name="extraAddr"  placeholder="주소참고항목"><br />
             		<input type="text" id="detailAddress" value="${myInfo.seconAddr}" name="seconAddr" placeholder="상세주소"></div>
 				<div><label><b>프로필 사진 : </b></label>
-					<img style="border-radius:20px" onerror="this.src='/resources/img/testImg.jpg'" src="${myProf}" width="100px" height="100px"></div>
+					<img style="border-radius:20px" onerror="this.src='/resources/img/testImg.jpg'" src="${uploadeddFile.dbSaveName}" width="100px" height="100px"></div>
 					<input type="file" name="prof" value="사진 바꾸기"></div>
 				<div><label><b>한 줄 소개 : </b></label>
 					<textarea rows="3" cols="100" name="ment" placeholder="한 줄 소개">${myInfo.ment}</textarea></div>
@@ -488,10 +488,10 @@
 							<input type="text" value="${myInfo.url_c}" name="url_c"></div>
 						<div><label><b>사업자번호 : </b></label>
 							<input type="text" value="${myInfo.brn}" name="brn"></div>
-						<div><label><b>사업자등록증 (수정 필요): </b></label>
-		<%-- 				<img style="border-radius:20px" onerror="this.src='/resources/img/testImg.jpg'" src="${myProf}" width="100px" height="100px"></div> --%>
-		<!-- 				<input type="file" name="brn_img" value="재등록"></div> -->
-						</div>
+						<div><label><b>사업자등록증 : </b></label>
+						<img onerror="this.src='/resources/img/testImg.jpg'" src="${uploadeddFile.brnName}" width="630px" height="900px"></div>
+						<input type="file" name="brn_img" value="재등록">
+						
 					</c:when>
 				</c:choose>
 					<input type='reset' value='초기화'>

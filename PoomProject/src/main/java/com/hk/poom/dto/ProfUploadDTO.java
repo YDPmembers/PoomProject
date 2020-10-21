@@ -6,6 +6,8 @@ public class ProfUploadDTO {
 	int mno;
 	//파일 이름 (prof)
 	String dbSaveName;
+	//사업자 파일 이름(brn_img)
+	String brnName; 
 	
 	
 	// Getter & Setter
@@ -22,10 +24,18 @@ public class ProfUploadDTO {
 		this.dbSaveName = dbSaveName;
 	}
 	
-	// toString()
+	
+	public String getBrnName() {
+		return brnName;
+	}
+	public void setBrnName(String brnName) {
+		this.brnName = brnName;
+	}
 	@Override
 	public String toString() {
-		return "profUploadDTO [mno=" + mno + ", dbSaveName=" + dbSaveName + "]";
+		return "ProfUploadDTO [mno=" + mno + ", dbSaveName=" + dbSaveName + ", brnName=" + brnName + "]";
 	}
+	
+	
 	
 }

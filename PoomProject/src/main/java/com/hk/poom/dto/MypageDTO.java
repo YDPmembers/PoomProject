@@ -39,7 +39,7 @@ public class MypageDTO {
 	//사업자 등록번호
 	int brn;
 	//사업자 등록증
-	String brn_img;
+//	String brn_img;
 	//사이트
 	String url_c;
 	//관심 분야
@@ -155,12 +155,12 @@ public class MypageDTO {
 	public void setBrn(int brn) {
 		this.brn = brn;
 	}
-	public String getBrn_img() {
-		return brn_img;
-	}
-	public void setBrn_img(String brn_img) {
-		this.brn_img = brn_img;
-	}
+//	public String getBrn_img() {
+//		return brn_img;
+//	}
+//	public void setBrn_img(String brn_img) {
+//		this.brn_img = brn_img;
+//	}
 	public String getUrl_c() {
 		return url_c;
 	}
@@ -191,6 +191,14 @@ public class MypageDTO {
 	public void setSaleCnt(int saleCnt) {
 		this.saleCnt = saleCnt;
 	}
+	@Override
+	public String toString() {
+		return "MypageDTO [type_m=" + type_m + ", mno=" + mno + ", stmt_m=" + stmt_m + ", id=" + id + ", pwd=" + pwd
+				+ ", email=" + email + ", tel=" + tel + ", name=" + name + ", zipCode=" + zipCode + ", firstAddr="
+				+ firstAddr + ", seconAddr=" + seconAddr + ", extraAddr=" + extraAddr + ", ment=" + ment
+				+ ", cre_date_m=" + cre_date_m + ", mod_date_m=" + mod_date_m + ", brn=" + brn + ", url_c=" + url_c
+				+ ", fav=" + fav + ", pet=" + pet + ", buyCnt=" + buyCnt + ", saleCnt=" + saleCnt + "]";
+	}
 	
 	// toString()
 //	@Override
@@ -211,14 +219,6 @@ public class MypageDTO {
 //				+ ", url_c=" + url_c + ", fav=" + fav + ", pet=" + pet + ", buyCnt=" + buyCnt + ", saleCnt=" + saleCnt
 //				+ "]";
 //	}
-	@Override
-	public String toString() {
-		return "MypageDTO [type_m=" + type_m + ", mno=" + mno + ", stmt_m=" + stmt_m + ", id=" + id + ", pwd=" + pwd
-				+ ", email=" + email + ", tel=" + tel + ", name=" + name + ", zipCode=" + zipCode + ", firstAddr="
-				+ firstAddr + ", seconAddr=" + seconAddr + ", extraAddr=" + extraAddr + ", ment=" + ment
-				+ ", cre_date_m=" + cre_date_m + ", mod_date_m=" + mod_date_m + ", brn=" + brn + ", brn_img=" + brn_img
-				+ ", url_c=" + url_c + ", fav=" + fav + ", pet=" + pet + ", buyCnt=" + buyCnt + ", saleCnt=" + saleCnt
-				+ "]";
-	}
+	
 	
 }
