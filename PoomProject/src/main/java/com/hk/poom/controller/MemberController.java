@@ -237,7 +237,7 @@ public class MemberController {
 		
 		session.invalidate();
 		
-		return "member/logout";
+		return "redirect:/poom";
 	}
 	
 	@GetMapping("/poom/login/kakao")
@@ -304,6 +304,14 @@ public class MemberController {
 		emailService.send(subject, sb.toString(), "ydp12341234@gmail.com", findPwdDTO.getEmail());
 
 		return "member/findPwdPost";
+	}
+	
+	@PostMapping("/poom/delete")
+	public String deletePost( @RequestParam("mno") int mno, @RequestParam("type_m") int type_m ) {
+		//logger.info("MemberController_Post_/poom/delete 실행");
+		memberService.memberDelete(type_m, mno);
+		
+		return "redirect:/poom/logout";
 	}
 	
 

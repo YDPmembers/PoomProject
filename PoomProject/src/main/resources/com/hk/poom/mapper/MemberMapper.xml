@@ -76,7 +76,6 @@
 <insert id="addEmailCheck" parameterType="com.hk.poom.dto.EmailCheck">
 	insert into EMAILCHECK(EMAIL,CODE) 
 	VALUES(#{email},#{code})
-
 </insert>
 
 <select id="getDbCode" parameterType="String" resultType="String">
@@ -89,5 +88,17 @@
 <update id="memberPwdUpdate" >
 	update member set pwd=#{pwd} where id=#{id}
 </update>
+
+<delete id="memberDelete">
+	DELETE FROM MEMBER WHERE MNO=#{mno}
+</delete>
+
+<delete id="memberDeletePer">
+	DELETE FROM PERSON WHERE MNO=#{mno}
+</delete>
+
+<delete id="memberDeleteCom">
+	DELETE FROM COMPANY WHERE MNO=#{mno}
+</delete>
 
 </mapper>
