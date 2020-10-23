@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -293,10 +294,12 @@ public class RehomeController {
    }
 
    @GetMapping("/poom/rehome/read")
-   public String rehomeRead(@RequestParam("bno") int bno, Model model) {
-	   logger.info("bno=" + bno);
-	   model.addAttribute("rehomeRead",rehomeService.rehomeRead(bno));
-	   return "rehome/rehomeRead";
+   public String rehomeRead(@RequestParam("bno") int bno, @RequestParam("mno") int mno, Model model, HttpSession session) {
+      logger.info("bno=" + bno);
+      // 글쓴이 정보 -> MyInterceptor에서 사용
+      session.setAttribute("writerMno", mno);
+      model.addAttribute("rehomeRead",rehomeService.rehomeRead(bno));
+      return "rehome/rehomeRead";
    }
  
    @GetMapping("/poom/rehome/pay")
