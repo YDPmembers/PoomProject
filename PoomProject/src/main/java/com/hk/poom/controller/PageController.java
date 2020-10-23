@@ -130,5 +130,13 @@ public class PageController {
 		
 		return "page/otherpage";
 	}
+	
+	// 접근 제한
+	@GetMapping("/poom/noauth")
+	public String noAuth( ) {
+		logger.info("PageController_Get_/poom/noAuth 실행");
+		
+		return "page/noAuth";
+	}
 
 }
