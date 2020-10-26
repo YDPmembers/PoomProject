@@ -38,7 +38,7 @@ values (#{bno},2,2)
 
 
 <select id="rehomeGetOne" resultType="com.hk.poom.dto.RehomeUpdateDTO">
-select * from BOARD  where BNO=#{bno} 
+select * from BOARD b, rehome r where b.bno=r.bno and b.BNO=#{bno} 
 </select>
 
 <update id="rehomeUpdate">
@@ -51,6 +51,11 @@ set  bno=#{bno}
 ,    neut=#{neut}
 ,    vac=#{vac}
 ,    cost=#{cost}
+,	 img_r1=#{img_r1}
+,	 img_r2=#{img_r2}
+,	 img_r3=#{img_r3}
+,	 img_r4=#{img_r4}
+,	 img_r5=#{img_r5}
     where bno=#{bno}
      
 
