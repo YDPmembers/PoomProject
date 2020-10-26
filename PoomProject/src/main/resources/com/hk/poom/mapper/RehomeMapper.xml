@@ -7,7 +7,7 @@
 
 
 <select id="rehomeList" resultType="com.hk.poom.dto.RehomeAddDTO">
-SELECT * FROM REHOME r, BOARD b, PAYMENT p WHERE r.BNO = b.BNO and b.BNO=p.BNO ORDER BY cre_date_b asc
+SELECT * FROM REHOME r, BOARD b, PAYMENT p WHERE r.BNO = b.BNO and b.BNO=p.BNO ORDER BY cre_date_b desc
 </select>
 
     
@@ -31,20 +31,21 @@ values (#{cateCode},#{bno}, #{title}, sysdate, sysdate, #{stmt_b}, #{cont_b}, #{
 </insert>
 
 <insert id="rehomeAddPost2" parameterType="com.hk.poom.dto.RehomeAddDTO">
-
-insert into payment (bno, stmt_sale,stmt_buy)
-values (#{bno},2,2)
+<selectKey resultType="int" keyProperty="pay_num" order="BEFORE">
+        SELECT MAX(pay_num)+1 FROM payment 
+    </selectKey>
+insert into payment (id_saler,bno, stmt_sale, stmt_buy, sale_chk, buy_chk, pay_num, cost)
+values (#{id_writer}, #{bno}, 2, 2, 0, 0, #{pay_num}, #{cost})
 </insert>
 
 
 <select id="rehomeGetOne" resultType="com.hk.poom.dto.RehomeUpdateDTO">
-select * from BOARD b, rehome r where b.bno=r.bno and b.BNO=#{bno} 
+select * from BOARD  where BNO=#{bno} 
 </select>
 
 <update id="rehomeUpdate">
 update rehome
 set  bno=#{bno}
-,    rno=#{rno}
 ,    mno=#{mno}
 ,    gender=#{gender}
 ,    age=#{age}
@@ -122,7 +123,8 @@ set  bno=#{bno}
 ,    pay_date=sysdate
 ,    stmt_sale=1
 ,    stmt_buy=1
-
+,	 sale_chk=1
+,	 buy_chk=1
 
     where bno=#{bno}
 
