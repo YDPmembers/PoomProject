@@ -58,6 +58,7 @@
 			<mvc:mapping path="/poom/community/add" />
 			<mvc:mapping path="/poom/community/update" />
 			<mvc:mapping path="/poom/community/delete" />
+			<mvc:mapping path="/poom/mypage" />
 			<beans:bean
 				class="com.hk.poom.interceptor.LoginInterceptor" />
 		</mvc:interceptor>

@@ -59,12 +59,26 @@ public class PageController {
 		model.addAttribute("myInfo", myInfo);
 		model.addAttribute("uploadeddFile", uploadeddFile);
 		
+		// 아직 미구현
+//		// 입양 리스트 출력
+//		AdminPayDTO buyInfo = new AdminPayDTO();
+//		buyInfo.setId_buyer(myInfo.getId());
+//		model.addAttribute("buyList", pageService.mypageBuyList(buyInfo));
+//		// 분양 리스트 출력
+//		AdminPayDTO saleInfo = new AdminPayDTO();
+//		saleInfo.setId_saler(myInfo.getId());
+//		model.addAttribute("saleList", pageService.mypageSaleList(saleInfo));
+//		// 쓴글 리스트 출력
+//		CommunityListDTO writeInfo = new CommunityListDTO();
+//		writeInfo.setId_writer(myInfo.getId());
+//		model.addAttribute("writeList", pageService.mypageWriteList(writeInfo));
+		
 		return "page/mypage";
 	}
 	
 	
 	@PostMapping("/poom/mypage")
-	public String mypagePost( Model model, MypageDTO mypageDTO, ProfUploadDTO profUploadDTO, @RequestParam("prof") MultipartFile prof, @RequestParam("brn_img") MultipartFile brn_img) {	//, @RequestParam("prof") MultipartFile prof
+	public String mypagePost( HttpSession session, Model model, MypageDTO mypageDTO, ProfUploadDTO profUploadDTO, @RequestParam("prof") MultipartFile prof, @RequestParam("brn_img") MultipartFile brn_img) {	//, @RequestParam("prof") MultipartFile prof
 		logger.info("PageController_Post_/poom/mypage 실행");
 		logger.info("수정할 회원 정보 = " + mypageDTO.toString());
 		
@@ -120,6 +134,17 @@ public class PageController {
 			profUploadDTO.setBrnName("/resources/brn_img/"+brnName);
 			memberService.brnUpload(profUploadDTO);
 		}
+		
+		// 로그인 정보 수정
+		LoginDTO loginMember = new LoginDTO();
+		loginMember.setType_m(mypageDTO.getType_m());
+		loginMember.setMno(mypageDTO.getMno());
+		loginMember.setPwd(mypageDTO.getPwd());
+		loginMember.setEmail(mypageDTO.getEmail());
+		loginMember.setName(mypageDTO.getName());
+		loginMember.setDbSaveName(profUploadDTO.getDbSaveName());
+		
+		session.setAttribute("loginMember", loginMember);
 
 		
 		return "page/mypagePost";
