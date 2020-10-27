@@ -138,5 +138,27 @@ public class PageController {
 		
 		return "page/noAuth";
 	}
+	
+	// admin 회원 상세정보 보기
+	@GetMapping("/poom/eachpage")
+	public String eachpage( Model model, @RequestParam("mno") int mno, @RequestParam("mtp") int type_m ) {
+		
+		logger.info("type_m-----------------은?"+type_m);
+		MypageDTO myInfo = new MypageDTO();
+		ProfUploadDTO uploadeddFile = new ProfUploadDTO(); 
+		if ( type_m==1 ) {	// 개인 회원
+			myInfo = pageService.mypagePer(mno);
+			uploadeddFile = pageService.memberFile(mno);
+		} else if ( type_m==2 ) {	// 업체 회원
+			myInfo = pageService.mypageCom(mno);
+			uploadeddFile = pageService.comFile(mno);
+		}
+		
+		model.addAttribute("myInfo", myInfo);
+		model.addAttribute("uploadeddFile", uploadeddFile);
+		model.addAttribute("type_m", type_m);
+		
+		return "page/mypage";
+	}
 
 }

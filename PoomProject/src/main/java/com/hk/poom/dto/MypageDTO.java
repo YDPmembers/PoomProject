@@ -17,7 +17,7 @@ public class MypageDTO {
 	//이메일
 	String email;
 	//연락처
-	int tel;
+	String tel;
 	//이름
 	String name;
 	//우편번호
@@ -37,7 +37,7 @@ public class MypageDTO {
 	//수정일
 	Date mod_date_m;
 	//사업자 등록번호
-	int brn;
+	String brn;
 	//사업자 등록증
 //	String brn_img;
 	//사이트
@@ -89,10 +89,11 @@ public class MypageDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getTel() {
+	
+	public String getTel() {
 		return tel;
 	}
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 	public String getName() {
@@ -149,13 +150,14 @@ public class MypageDTO {
 	public void setMod_date_m(Date mod_date_m) {
 		this.mod_date_m = mod_date_m;
 	}
-	public int getBrn() {
+	
+	public String getBrn() {
 		return brn;
 	}
-	public void setBrn(int brn) {
+	public void setBrn(String brn) {
 		this.brn = brn;
 	}
-//	public String getBrn_img() {
+	//	public String getBrn_img() {
 //		return brn_img;
 //	}
 //	public void setBrn_img(String brn_img) {
