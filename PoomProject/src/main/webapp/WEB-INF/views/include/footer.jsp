@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </main>
     <footer>
@@ -47,8 +48,24 @@
                                <div class="footer-tittle">
                                    <h4>회원</h4>
                                    <ul>
+                                   
+                                   <c:choose>
+										<c:when test="${empty loginMember}">
+											
+                                       <li><a href="/poom/register/new">개인 회원가입</a></li>
+                                       <li><a href="/poom/register/com">업체 회원가입</a></li>
+                                       <li><a href="/poom/login">로그인</a></li>
+                                       
+                                        </c:when>
+                                   
+                                   		<c:otherwise>
+                                       
                                        <li><a href="/poom/mypage">마이페이지</a></li>
                                        <li><a href="/poom/logout">로그아웃</a></li>
+                                      	
+                                      	</c:otherwise> 
+                                   </c:choose>
+                                   
                                    </ul>
                                </div>
                            </div>
