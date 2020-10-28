@@ -43,7 +43,7 @@ img {
             </h1>
           
                   <p>
-                   <a href="add">신규 등록</a>
+				       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='add'">신규 등록</button>
                   </p>
          </div>
       </section>
@@ -51,37 +51,37 @@ img {
           </p>
 
 <div class="album py-5 bg-light">
-         <div class="container">
+			<div class="container">
 
-            <div class="row">               
-               <c:forEach items="${rehomeList}" var="rehomeList">
-                  <c:if test="${rehomeList.stmt_sale ne 1}">
-                  <div class="col-md-4">
-                     <div class="card mb-4 shadow-sm" style="border-radius: 10%;">
-                     <div align='center'>
-                        <img src="/resources/img/rehome/${rehomeList.img_r1 }" onerror="this.src='/resources/img/none.png'" width="200" height="200" />
-                        </div>
-                        <div class="card-body">
-                           <p class="card-text"><c:out value="${rehomeList.title}" />/<c:out value="${rehomeList.cateName}" />/<c:out value="${rehomeList.age}" />/<c:out value="${rehomeList.cost}" /> </p>
-                           <div class="d-flex justify-content-between align-items-center">
-                              <div class="btn-group">
-                                 <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='read?bno=${rehomeList.bno}&mno=${rehomeList.mno}'">보기</button>
-   
-                              </div>
-                              <small class="text-muted"><fmt:formatDate pattern="yyyy-MM-dd" value="${rehomeList.mod_date_b}" /></small>
-                           </div>
-                        </div>
-                     </div>
-                  
-                  </div>
-                          <tr>
-                  </c:if>
+				<div class="row">					
+					<c:forEach items="${rehomeList}" var="rehomeList">
+						<c:if test="${rehomeList.stmt_sale ne 1}">
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm" style="border-radius: 10%;" >
+							<div align='center'>
+								<img src="/resources/img/rehome/${rehomeList.img_r1 }" onerror="this.src='/resources/img/none.png'" width="250" height="250" style="margin-top: 10px;" onclick="location.href='read?bno=${rehomeList.bno}&mno=${rehomeList.mno}'"/>
+								</div>
+								<div class="card-body">
+									<p class="card-text"><c:out value="${rehomeList.title}" />/<c:out value="${rehomeList.cateName}" />/<c:out value="${rehomeList.age}" />/<c:out value="${rehomeList.cost}" /> </p>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="btn-group">
+											<button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='read?bno=${rehomeList.bno}&mno=${rehomeList.mno}'">보기</button>
+	
+										</div>
+										<small class="text-muted"><fmt:formatDate pattern="yyyy-MM-dd" value="${rehomeList.mod_date_b}" /></small>
+									</div>
+								</div>
+							</div>
+						
+						</div>
+                    		<tr>
+						</c:if>
                     </c:forEach>
-               
-               
-            </div>
-         </div>
-      </div>
+					
+					
+				</div>
+			</div>
+		</div>
 
 
 
