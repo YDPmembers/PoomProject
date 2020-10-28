@@ -11,6 +11,16 @@
 <title>Rehome List</title>
 <jsp:include page="../include/inHead.jsp"></jsp:include>
 
+<style>
+
+img {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+</style>
+
 </head>
 <jsp:include page="../include/header.jsp"></jsp:include>
 
@@ -30,9 +40,7 @@
             <h1>
                <font color='white'>POOM</font>
             </h1>
-            <p class="lead text-muted">
-               <font color='white'>구현중</font>
-            </p>
+          
                   <p>
                    <a href="add">신규 등록</a>
                   </p>
@@ -48,7 +56,7 @@
                <c:forEach items="${rehomeList}" var="rehomeList">
                   <c:if test="${rehomeList.stmt_sale ne 1}">
                   <div class="col-md-4">
-                     <div class="card mb-4 shadow-sm" >
+                     <div class="card mb-4 shadow-sm" style="border-radius: 10%;">
                      <div align='center'>
                         <img src="/resources/img/rehome/${rehomeList.img_r1 }" onerror="this.src='/resources/img/none.png'" width="200" height="200" />
                         </div>
