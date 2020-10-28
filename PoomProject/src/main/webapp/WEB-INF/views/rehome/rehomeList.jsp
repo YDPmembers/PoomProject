@@ -62,7 +62,12 @@ img {
 								<img src="/resources/img/rehome/${rehomeList.img_r1 }" onerror="this.src='/resources/img/none.png'" width="250" height="250" style="margin-top: 10px;" onclick="location.href='read?bno=${rehomeList.bno}&mno=${rehomeList.mno}'"/>
 								</div>
 								<div class="card-body">
-									<p class="card-text"><c:out value="${rehomeList.title}" />/<c:out value="${rehomeList.cateName}" />/<c:out value="${rehomeList.age}" />/<c:out value="${rehomeList.cost}" /> </p>
+									<p class="card-text">
+										<strong><c:out value="${rehomeList.title}" /></strong><br />
+										종 : <c:out value="${rehomeList.cateName}" /><br />
+										나이 : <c:out value="${rehomeList.age}" /><br />
+										분양가 : <c:out value="${rehomeList.cost}" />
+									</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
 											<button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='read?bno=${rehomeList.bno}&mno=${rehomeList.mno}'">보기</button>
