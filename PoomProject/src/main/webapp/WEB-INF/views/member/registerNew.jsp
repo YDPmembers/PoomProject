@@ -487,7 +487,7 @@ function execDaumPostcode() {
            			<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br />
             		<input type="text" id="address" placeholder="주소" name="firstAddr" required>
             		<input type="text" id="extraAddress" placeholder="참고항목" name="extraAddr" required><br />
-            		<input type="text" id="detailAddress" placeholder="상세주소" name="seconAddr"></div>
+            		<input type="text" id="detailAddress" placeholder="상세주소" name="secondAddr"></div>
 				<div><label><b>프로필 사진 : </b></label>
 					<input type="file" name="prof" value=""></div>
 				<div><label><b>한 줄 소개 : </b></label>
