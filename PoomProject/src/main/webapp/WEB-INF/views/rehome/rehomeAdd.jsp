@@ -46,8 +46,8 @@
     <option value="1">안했음</option>
     <option value="2" selected>모름</option>
   </select><br>
-  
-  분양가<input id="cost" type="text" name="cost" required><br>
+ 나이<input id='age' type="text" name='age' required placeholder='개월수!!'><br>
+  분양가<input id="cost" type="text" name="cost" required placeholder='100만원 이하!!'><br>
   <div style="display:none;">분양글번호<input type="text" name="rno" value="0"><br></div>
  <div style="display:none;">
   <!-- 글쓴이 정보 -->
