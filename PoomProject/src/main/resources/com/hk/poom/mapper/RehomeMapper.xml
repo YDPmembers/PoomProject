@@ -20,8 +20,8 @@ SELECT * from category start with cateCodeRef is null connect by prior cateCode 
 <selectKey resultType="int" keyProperty="bno" order="BEFORE">
         SELECT MAX(BNO)+1 FROM BOARD 
     </selectKey>
-insert into rehome (bno, rno, mno, gender, age, neut, vac, cost, cateCode, img_r1, img_r2, img_r3, img_r4, img_r5)
-values (#{bno},#{rno}, #{mno}, #{gender}, #{age}, #{neut}, #{vac}, #{cost},#{cateCode}, #{img_r1}, #{img_r2}, #{img_r3}, #{img_r4}, #{img_r5})
+insert into rehome (bno, rno, mno, gender, age, neut, vac, cost, cateCode, img_r1, img_r2, img_r3, img_r4, img_r5, stmt_b)
+values (#{bno},#{rno}, #{mno}, #{gender}, #{age}, #{neut}, #{vac}, #{cost},#{cateCode}, #{img_r1}, #{img_r2}, #{img_r3}, #{img_r4}, #{img_r5}, 0)
 </insert>
 
 <insert id="rehomeAddPost1" parameterType="com.hk.poom.dto.RehomeAddDTO">
