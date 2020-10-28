@@ -114,7 +114,6 @@
     <!-- Date Picker -->
     <script src="https://technext.github.io/environmentalorganization/assets/js/gijgo.min.js"></script>
     <!-- Nice-select, sticky -->
-    <script src="https://technext.github.io/environmentalorganization/assets/js/jquery.nice-select.min.js"></script>
     <script src="https://technext.github.io/environmentalorganization/assets/js/jquery.sticky.js"></script>
     <!-- Progress -->
     <script src="https://technext.github.io/environmentalorganization/assets/js/jquery.barfiller.js"></script>

@@ -58,6 +58,7 @@ public class PageController {
 		
 		model.addAttribute("myInfo", myInfo);
 		model.addAttribute("uploadeddFile", uploadeddFile);
+		model.addAttribute("type_m", type);
 		
 		// 아직 미구현
 //		// 입양 리스트 출력

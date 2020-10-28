@@ -552,7 +552,7 @@
 	<p>이메일 : ${myInfo.email}</p>
 	<p>연락처 : ${myInfo.tel}</p>
 	<p>한 줄 소개 : ${myInfo.ment}</p>
-	<c:set var="type_m" value="${loginMember.type_m}" />
+<%-- 	<c:set var="type_m" value="${loginMember.type_m}" /> --%>
 		<c:if test="${type_m eq '2'}">
 			<p>사이트 : ${myInfo.url_c}</p>
 		</c:if>
