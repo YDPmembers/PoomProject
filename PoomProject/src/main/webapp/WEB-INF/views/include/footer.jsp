@@ -13,7 +13,7 @@
                                <div class="single-footer-caption mb-30">
                                    <!-- logo -->
                                    <div class="footer-logo mb-35">
-                                       <a href="https://technext.github.io/environmentalorganization/index.html">
+                                       <a href="/poom">
                                        	<img src="/resources/img/poom_logo5.png" alt="" style="width:140px; height:auto; border-radius:30px"></a>
                                    </div>
                                    <div class="footer-tittle">
