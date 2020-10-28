@@ -65,8 +65,8 @@ img {
 									<p class="card-text">
 										<strong><c:out value="${rehomeList.title}" /></strong><br />
 										종 : <c:out value="${rehomeList.cateName}" /><br />
-										나이 : <c:out value="${rehomeList.age}" /><br />
-										분양가 : <c:out value="${rehomeList.cost}" />
+										나이 : <strong><c:out value="${rehomeList.age}" /></strong><br /> 개월
+										분양가 : <strong><c:out value="${rehomeList.cost}" /></strong> 원
 									</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
