@@ -8,7 +8,7 @@
 <title>rehome add</title>
 <jsp:include page="../include/inHead.jsp"></jsp:include>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
 </head>
 <jsp:include page="../include/header.jsp"></jsp:include>
 <h1>게시물등록 연습</h1>
@@ -68,6 +68,13 @@
   <input type='reset' value="취소"><br>
 </form>
 
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#cont_b' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
 
 
