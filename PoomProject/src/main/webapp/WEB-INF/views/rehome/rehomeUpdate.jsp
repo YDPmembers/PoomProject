@@ -15,7 +15,6 @@
 <form id='update' action='update' method='post' enctype="multipart/form-data">
 <br>
   게시판번호 <input type="text" name="bno" value='${rehomeGetOne.bno }' readonly><br>
-<%--   분양글번호(읽기만)<input type="text" name="rno" value='${rehomeGetOne.rno }'readonly><br> --%>
   회원번호 <input type="text" name="mno" value='${rehomeGetOne.mno }'readonly><br>
   성별<select form='update' name="gender" ><br>
     <option value="0">암컷</option>
