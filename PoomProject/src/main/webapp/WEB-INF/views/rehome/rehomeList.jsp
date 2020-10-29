@@ -14,7 +14,6 @@
 <style>
 
 img {
-  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -36,10 +35,10 @@ img {
           <!-- Page Heading -->
 
           <p class="mb-4">
-          <section class="jumbotron text-center" style='background-color: #151515;'>
+          <section class="jumbotron text-center" style='background: linear-gradient(to top, lavender, white);'>
          <div class="container">
             <h1>
-               <font color='white'>POOM</font>
+               <font color='skyblue' size='20px'>POOM</font>
             </h1>
           
                   <p>
@@ -50,28 +49,27 @@ img {
 
           </p>
 
-<div class="album py-5 bg-light">
+<div class="service-area section-padding30">
 			<div class="container">
 
 				<div class="row">					
 					<c:forEach items="${rehomeList}" var="rehomeList">
 						<c:if test="${rehomeList.stmt_sale ne 1}">
-						<div class="col-md-4">
-							<div class="card mb-4 shadow-sm" style="border-radius: 10%;" >
+						<div class="col-md-4" >
+                        <div class="single-cat text-center mb-30">
 							<div align='center'>
-								<img src="/resources/img/rehome/${rehomeList.img_r1 }" onerror="this.src='/resources/img/none.png'" width="250" height="250" style="margin-top: 10px;" onclick="location.href='read?bno=${rehomeList.bno}&mno=${rehomeList.mno}'"/>
+								<img src="/resources/img/rehome/${rehomeList.img_r1 }" onerror="this.src='/resources/img/none.png'" width="350" height="350" onclick="location.href='read?bno=${rehomeList.bno}&mno=${rehomeList.mno}'"/>
 								</div>
 								<div class="card-body">
-									<p class="card-text">
+									<p>
 										<strong><c:out value="${rehomeList.title}" /></strong><br />
 										종 : <strong><c:out value="${rehomeList.cateName}" /></strong><br />
 										나이 : <strong><c:out value="${rehomeList.age}" /></strong>개월<br /> 
 										분양가 : <strong><c:out value="${rehomeList.cost}" /></strong> 원
 									</p>
 									<div class="d-flex justify-content-between align-items-center">
-										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='read?bno=${rehomeList.bno}&mno=${rehomeList.mno}'">보기</button>
-	
+										<div class="cat-cap">
+											<button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='read?bno=${rehomeList.bno}&mno=${rehomeList.mno}'">보기</button>	
 										</div>
 										<small class="text-muted"><fmt:formatDate pattern="yyyy-MM-dd" value="${rehomeList.mod_date_b}" /></small>
 									</div>
@@ -89,6 +87,6 @@ img {
 		</div>
 
 
-
+</div>
 
 <jsp:include page="../include/footer.jsp"></jsp:include>
