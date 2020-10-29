@@ -47,16 +47,16 @@
     <option value="1">안했음</option>
     <option value="2" selected>모름</option>
   </select><br>
-  
-  분양가<input id="cost" type="text" name="cost" required><br>
-<!--   분양글번호<input type="text" name="rno"><br> -->
+ 나이<input id='age' type="text" name='age' required placeholder='개월수!!'><br>
+  분양가<input id="cost" type="text" name="cost" required placeholder='100만원 이하!!'><br>
+  <div style="display:none;">분양글번호<input type="text" name="rno" value="0"><br></div>
  <div style="display:none;">
   <!-- 글쓴이 정보 -->
   회원번호<input type="text" name="mno" value="${loginMember.mno}" readonly><br>
   회원아이디 (글쓴이)<input type="text" name="id_writer" value="${loginMember.id}" readonly><br>
   회원이메일<input type="text" name="email" value="${loginMember.email}" readonly><br>
   회원이름<input type="text" name="name" value="${loginMember.name}" readonly><br>
-  회원상태<input type="text" name="stmt_b" readonly><br>
+  회원상태<input type="text" name="stmt_m" readonly><br>
  </div>
   제목<input type="text" name="title" required><br>
 <!--   글쓴이<input type="text" name="id_writer"><br> -->
