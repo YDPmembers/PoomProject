@@ -11,7 +11,6 @@
 
 <style>
 img {
-  border-radius: 50%;
   cursor: pointer;
 }
 </style>
@@ -30,10 +29,10 @@ img {
           <!-- Page Heading -->
 
           <p class="mb-4">
-          <section class="jumbotron text-center" style='background-color: #151515;'>
+          <section class="jumbotron text-center" style='background: linear-gradient(to top, lavender, white);'>
          <div class="container">
             <h1>
-               <font color='white'>POOM</font>
+               <font color='skyblue' size='20px'>POOM</font>
             </h1>
           
                   <p>
@@ -44,7 +43,7 @@ img {
 
           </p>
 
-<div class="album py-5 bg-light">
+<div class="service-area section-padding30">
 			<div class="container">
 
 				<div class="row">					

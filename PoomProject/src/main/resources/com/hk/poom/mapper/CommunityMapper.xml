@@ -9,7 +9,7 @@ SELECT * from category start with cateCodeRef is null connect by prior cateCode 
 </select>    
 
 <select id="communityList" resultType="com.hk.poom.dto.CommunityListDTO">
-SELECT * FROM COMMUNITY c, board b where c.bno=b.bno
+SELECT * FROM COMMUNITY c, board b where c.bno=b.bno ORDER BY cre_date_b desc
 </select>
 
 <insert id="communityAdd" parameterType="com.hk.poom.dto.CommunityAddDTO">
