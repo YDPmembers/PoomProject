@@ -22,20 +22,18 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">FAQ</h1>
-          <p class="mb-4">게시물 리스트
+         
+          <p class="mb-4">
           &nbsp;&nbsp;&nbsp;
-          <section class="jumbotron text-center"
-			style='background-color: #151515;'>
+                  <section class="jumbotron text-center" style='background: linear-gradient(to top, lavender, white);'>
 			<div class="container">
 				<h1>
-					<font color='white'>POOM</font>
+               <font color='skyblue' size='20px'>POOM</font>
 				</h1>
 				<p class="lead text-muted">
-					<font color='white'>구현중</font>
 				</p>
 				      <p>
-				       <a href="add">신규 등록</a>
+				       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='add'">신규 등록</button>
 				      </p>
 			</div>
 		</section>

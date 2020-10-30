@@ -21,62 +21,41 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">FAQ</h1>
-          <p class="mb-4">게시물 리스트
-          &nbsp;&nbsp;&nbsp;
-          <section class="jumbotron text-center"
-			style='background-color: #151515;'>
-			<div class="container">
-				<h1>
-					<font color='white'>POOM</font>
-				</h1>
-			
-				      <p>
-				       <a href="add">신규 등록</a>
-				      </p>
-			</div>
-		</section>
-
-          </p>
+          
           <!-- DataTales Example -->
-          <div class="card shadow mb-4">
+          <div class="card shadow mb-4" >
 
-            <div class="card-body">
-              <div class="table-responsive" align="center">
-
-
+            <div class="card-body"  align='center' >
+              <div class="table-responsive" style=" width:80%;" align='left'>
 
 
-						<div rows="50" cols="150">
-							<div>게시판 번호: ${rehomeRead.bno}</div>
-							<div>작성자: ${rehomeRead.id_writer}</div>
-							<div>제목: ${rehomeRead.title}</div>
-							<div>등록된 사진:<br><img src="/resources/img/rehome/${rehomeRead.img_r1 }" onerror="this.style.display='/recources/img/none.png'" width="200" height="200" /></div>
-							<div>		 <img src="/resources/img/rehome/${rehomeRead.img_r2 }" onerror="this.style.display='none'" width="200" height="200" /></div>
-							<div>		 <img src="/resources/img/rehome/${rehomeRead.img_r3 }" onerror="this.style.display='none'" width="200" height="200" /></div>
-							<div>		 <img src="/resources/img/rehome/${rehomeRead.img_r4 }" onerror="this.style.display='none'" width="200" height="200" /></div>
-							<div>		 <img src="/resources/img/rehome/${rehomeRead.img_r5 }" onerror="this.style.display='none'" width="200" height="200" /></div>
+						<div style="height:100%;">
+							<div style="display:none;">게시판 번호: ${rehomeRead.bno}</div>
+							<div style="font-size:3em;"><strong> ${rehomeRead.title}</strong></div><br>
+							<div align='right'><strong><a href="#" onClick="window.open('report?bno=${rehomeRead.bno}','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">신고</a>&nbsp;&nbsp;&nbsp;<a href='update?bno=${rehomeRead.bno}'>수정</a>&nbsp;&nbsp;&nbsp;<a href='delete?bno=${rehomeRead.bno}'>삭제</a></strong></div>
+							<div style="font-size:2em;"> 작성자:<strong> ${rehomeRead.id_writer}</strong></div>							
+							<ul>
+							<li> 종 분류:<strong> ${rehomeRead.cateName}</strong></li>
+							 <li>나이:<strong> ${rehomeRead.age}</strong></li>
+							<li> 분양가: <strong>${rehomeRead.cost}</strong></li></ul><br>
 							
+							<div>
+								<div><img src="/resources/img/rehome/${rehomeRead.img_r1 }" onerror="this.style.display='/recources/img/none.png'" width="450" height="450" /> &nbsp;&nbsp;&nbsp;
+									 <img src="/resources/img/rehome/${rehomeRead.img_r2 }" onerror="this.style.display='none'" width="450" height="450" />&nbsp;&nbsp;&nbsp;
+									 <img src="/resources/img/rehome/${rehomeRead.img_r3 }" onerror="this.style.display='none'" width="450" height="450" /></div><br>
+								<div><img src="/resources/img/rehome/${rehomeRead.img_r4 }" onerror="this.style.display='none'" width="450" height="450" />&nbsp;&nbsp;&nbsp;	 
+									 <img src="/resources/img/rehome/${rehomeRead.img_r5 }" onerror="this.style.display='none'" width="450" height="450" /></div><br>	 
+							</div>				
 							
-							
-							<div>종 분류: ${rehomeRead.cateName}</div>
-							<div>나이: ${rehomeRead.age}</div>
-							<div>분양가: ${rehomeRead.cost}</div>
-							<div>본문: ${rehomeRead.cont_b}</div>
-<%-- 							<div><button type="button" onclick="location.href='pay?cost=${rehomeRead.cost}'">분양받기</button></div> --%>
-							<div><button type="button" style="color:black;" onclick="location.href='pay?bno=${rehomeRead.bno}&id_writer=${rehomeRead.id_writer}&id_reader=${loginMember.id}&cost=${rehomeRead.cost}'">분양받기</button></div>
-							<div><a href="#" onClick="window.open('report?bno=${rehomeRead.bno}','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">신고</a></div>
-							<div><a href='update?bno=${rehomeRead.bno}'>수정</a></div>
-							<div><a href='delete?bno=${rehomeRead.bno}'>삭제</a></div>
-						</div>
-   
-   
-
-
-              
-              
+							<br><div style="min-height:500px;"> ${rehomeRead.cont_b}</div><br><br>							
+   						</div>
               </div>
+              	<div align="center">
+								<div><button type="button" class="btn btn-sm btn-outline-secondary" style="color:black; cursor: pointer;" onclick="location.href='pay?bno=${rehomeRead.bno}&id_writer=${rehomeRead.id_writer}&id_reader=${loginMember.id}&cost=${rehomeRead.cost}'">분양받기</button></div><br>
+								
+							</div>
+
+              
             </div>
           </div>
 
