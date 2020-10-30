@@ -33,7 +33,7 @@ public class CommunityReadDTO {
 	//사진5
 	String img_c5;
 	//수정일
-	Date mod_date_re;
+	Date mod_date_b;
 	//조회수
 	int viewCnt;
 	//댓글수

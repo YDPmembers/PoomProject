@@ -45,24 +45,34 @@
             <div class="card-body">
               <div class="table-responsive" align="center">
 
-
-
-
-						<div rows="50" cols="150">
-							<div>게시판 번호: ${communityRead.bno}</div>
-							<div>작성자: ${communityRead.id_writer}</div>
-							<div>제목: ${communityRead.title}</div>
-							<div>회원번호: ${communityRead.mno}</div>
-							<div><img src="/resources/img/community/${communityRead.img_c1 }" onerror="this.style.display='none'" width="200" height="200" /></div>
-							<div><img src="/resources/img/community/${communityRead.img_c2 }" onerror="this.style.display='none'" width="200" height="200" /></div>
-							<div><img src="/resources/img/community/${communityRead.img_c3 }" onerror="this.style.display='none'" width="200" height="200" /></div>
-							<div><img src="/resources/img/community/${communityRead.img_c4 }" onerror="this.style.display='none'" width="200" height="200" /></div>
-							<div><img src="/resources/img/community/${communityRead.img_c5 }" onerror="this.style.display='none'" width="200" height="200" /></div>
-							<div>본문: ${communityRead.cont_b}</div>
+<div class="container-fluid">
+  <div class="row" >
+    <div class="col-sm-2" style="background-color:lavenderblush;">제목</div>
+    <div class="col-sm-10" align="left">${communityRead.title}</div>
+    <div class="col-sm-2" style="background-color:lavenderblush; display:none;">게시판 번호</div>
+    <div class="col-sm-10" style="display:none;" align="left">${communityRead.bno}</div>
+   <div class="col-sm-2" style="background-color:lavenderblush;">작성자</div>
+    <div class="col-sm-10" align="left"> ${communityRead.id_writer}</div>
+     <div class="col-sm-2" style="background-color:lavenderblush;">작성일</div>
+    <div class="col-sm-10" align="left"><fmt:formatDate pattern="yyyy-MM-dd" value="${communityRead.mod_date_b}" /></div>
+    <div class="col-sm-2" style="background-color:lavenderblush; display:none;">회원번호</div>
+    <div class="col-sm-10" style="display:none;" align="left">${communityRead.mno}</div>
+  </div>
+</div>	
+							<div align="right"><a href="#" onClick="window.open('report?bno=${communityRead.bno}','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">신고</a>
+							<a href='update?bno=${communityRead.bno}'>수정</a>
+							<a href='delete?bno=${communityRead.bno}'>삭제</a></div><br>
+							<!-- <div>작성자: ${communityRead.id_writer}</div>
+							<div>제목: ${communityRead.title}</div> 
+							<div>회원번호: ${communityRead.mno}</div>-->
+							<img src="/resources/img/community/${communityRead.img_c1 }" onerror="this.style.display='none'" width="200" height="200" />
+							<img src="/resources/img/community/${communityRead.img_c2 }" onerror="this.style.display='none'" width="200" height="200" />
+							<img src="/resources/img/community/${communityRead.img_c3 }" onerror="this.style.display='none'" width="200" height="200" />
+							<img src="/resources/img/community/${communityRead.img_c4 }" onerror="this.style.display='none'" width="200" height="200" />
+							<img src="/resources/img/community/${communityRead.img_c5 }" onerror="this.style.display='none'" width="200" height="200" />
+							<div>${communityRead.cont_b}</div>
 							
-							<div><a href="#" onClick="window.open('report?bno=${communityRead.bno}','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">신고</a></div>
-							<div><a href='update?bno=${communityRead.bno}'>수정</a></div>
-							<div><a href='delete?bno=${communityRead.bno}'>삭제</a></div>
+							
 						</div>
    
    
