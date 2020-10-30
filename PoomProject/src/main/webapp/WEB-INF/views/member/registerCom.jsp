@@ -3,13 +3,48 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="shortcut icon" type="image/x-icon" href="../compuzone_web.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="dnxhxrTfQxPmuoSYtosbrrQ-g02ONxebL1NiCsW-cn8" />
+<meta name="naver-site-verification" content="177d7a5975da608bac153b237fd0cf36708423e2"/>
 <meta charset="UTF-8">
 <title>신규 회원가입</title>
+
+
+
 <jsp:include page="../include/inHead.jsp"></jsp:include>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <!-- 다음 주소찾기 -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+
+<!-- CSS관련자료 -->
+<script type="text/javascript" src='https://www.compuzone.co.kr/script/common.js?utime=20170525'></script>
+<script type="text/javascript" src="https://www.compuzone.co.kr/script/jquery-1.8.3.min.js"></script><link href="https://www.compuzone.co.kr//css/member.css?id=180718" rel="stylesheet" type="text/css">
+<link href="../css/2013main.css" rel="stylesheet" type="text/css">
+<link href="https://www.compuzone.co.kr/css/bsk2015.css" rel="stylesheet" type="text/css">
+<link href="https://www.compuzone.co.kr/css/common_style.css?utime=20181010" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="https://www.compuzone.co.kr/script/common_div.js"></script>
+<style type="text/css">
+	#mask, #mask2 { position:absolute; left:0; top:0; z-index:100; background-color:#000; display:none; }
+	#tax_dim {display:none; position:absolute; left:0; top:0; z-index:100; width: 100%;height: 100%; background-color:#000; filter:alpha(opacity=60);-moz-opacity: 0.6;opacity: 0.6; }
+	/*.error{color: rgb(242, 70, 56);cursor: pointer;margin: 10px 0px 0px;float: none;}*/
+	#TaxCheck>div {margin-left:220px !important;}
+	#jqIdOAuthNaverLyr, #jqIdOAuthKakaoLyr, #showPN{left:767px !important;top:520px !important;}
+</style>
+
+
+
+
+
+
+
+
 <script>
 
 //유효성 기능 활성화
@@ -603,71 +638,173 @@ function execDaumPostcode() {
   
 </head>
 <jsp:include page="../include/header.jsp"></jsp:include>
-	
-	<form action="com" method="post"  enctype="multipart/form-data">
-		<fieldset style="width:725px;margin-right:1000px">
-			<legend style="font-size:25px;"><b>회원 입력</b></legend>
-				<label><b>* 아이디 :</b></label>
-					<input type="text" name="id" id="idDupChk"  placeholder="ID" oninput="checkId()" required>
-					<div class="validation" id="idDupChkRet" style="font-size: 15px;"></div>
-<!-- 					<input type="hidden" id="idDupChkRet" style="width:270px;margin-right:1px"><br> -->
-				<label><b>* 비밀번호 : </b></label>
-					<input type="password" id="pwd" placeholder="PASSWORD"  oninput="checkPwd()" required>
-					 <div class="validation" id="pwdRet" style="font-size: 15px;"></div>
-				<label><b>* 비밀번호 재확인 : </b></label>
-					<input type="password" name="pwd" id="pwdMatChk" placeholder="Confirm Password" oninput="reCheckPwd()" required>
-					<div class="validation" id="pwdMatChkRet" style="font-size: 15px;"></div>
-<!-- 					<input type="hidden" id="pwdMatChkRet"><br> -->
-				<div><label><b>* 이메일 : </b></label>
-					<input type="email" name='email' id="emailDupChk" placeholder="이메일" oninput="chcekEmail()" required>
-					<button type="button" id="emailBtn" onclick="">본인인증</button><br/>
-					<div class="validation" id="emailDupChkRet" style="font-size: 15px;"></div>
-					인증코드 :	
-		 				<input type="text" name="checkCode" id="checkCode" placeholder="인증번호" required>
-		 				<button type="button" id="codeBtn" onclick="">인증번호 확인</button><br/>
-		 				<div class="validation" id="checkCodeRet" style="font-size: 15px;"></div></div>				
-		</fieldset>
-		<fieldset style="width:700px;margin-right:1000px">	
-			<legend style="font-size:25px;"><b>사업자 정보 등록</b></legend>
-				<label><b>* 매장명 : </b></label> 
-					<input type="text" name="name" placeholder="매장명" required><br>
-				<label><b>* 사업자 번호 : </b></label>
-					<input type="text" name="brn"  placeholder="사업자 번호" required><br>
-				<label><b>* 사업자등록증 사진파일 : </b></label>
-					<input type="file" name='brn_img' required><br>
-				<label><b>* 주소</b></label>
-            		<input type="text" id="postcode" placeholder="우편번호" name="zipCode" style="width:60px;margin-right:1px" required>
-           			<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
-            		<input type="text" id="address" placeholder="주소" name="firstAddr" required><br>
-            		<input type="text" id="extraAddress" placeholder="참고항목" name="extraAddr" required>
-            		<input type="text" id="detailAddress" placeholder="상세주소 미기입 가능" name="secondAddr"><br>
-            	<label><b>* 전화번호 : </b></label> 
-            		<input type="tel" name="tel" id="tel" placeholder="전화번호 입력" required>
-            		<div class="validation" id="telRet" style="font-size: 15px;"></div><br>
-				<div><label><b>프로필 사진 : </b></label>
-					<input type="file" name="prof" value=""></div>
-				<label><b>매장 사이트 낫널 : </b></label>
-					<input type="text" name='url_c' placeholder="매장 사이트 입력"><br>
-	
-				<label><b>매장 소개멘트 : <br><textarea rows="5" cols="100" name="ment"></textarea></b></label>
-<!-- 				<input type='text' name='ment'><br> -->
-	
-	
-<!-- 	프로필 사진 낫널아직: <input type="file" name='prof'><br> -->
-	
-<!-- 	사업자등록증 사진 : <input type="image" name='brn_img'><br> -->
-	
-<!-- 	사업자등록증 사진파일 : <input type="file" name=''><br> -->
+<!--####### 상단 시작 #######-->
+<!-- <div id="header"> -->
+<!-- 	<h1 style="width: 795px !important;"> -->
+<!-- 		<a href="http://www.compuzone.co.kr/main/main.htm"> -->
+<!-- 		<img src="/resources/img/poom_logo5.png" alt="POOM" style="width:140px; height:auto; border-radius:30px"/> -->
+<!-- 		</a> -->
+<!-- 		<img src="/resources/img/poom_logo5.png" alt="회원가입" /> -->
+<!-- 	</h1> -->
+<!-- </div> -->
 
+
+<form action="com" method="post"  enctype="multipart/form-data">
+	<div id="container">
+
+	<!-- 딜러회원가입시 노출 영역 -->
+	<div class="contents">
+		<div class="tit">업체회원가입!!!</div>
+		<div class="contentsBOX"></div>
+	</div>
+	<div class="contents">
+		<!--시작---------------------------------------------------------------------------------------------------->
+		<table cellpadding="0" cellspacing="0" class="member_form" style="position:relative;z-index:1;">
+			<tbody>
+				<tr>
+					<th>아이디</th>
+					<td><input type="text" name="id" id="idDupChk"
+						placeholder="아이디" oninput="checkId()" required>
+						<div class="validation" id="idDupChkRet" style="font-size: 15px;"></div>
+						<span class="subtxt" style="margin-left: 5px;">※ 영문자/숫자
+							6~12자 (한글과 여백은 사용하실 수 없습니다.)</span></td>
+				</tr>
+				<tr>
+					<th>비밀번호</th>
+					<td><input type="password" id="pwd" placeholder="비밀번호"
+						oninput="checkPwd()" required>
+						<div class="validation" id="pwdRet" style="font-size: 15px;"></div>
+
+					</td>
+				</tr>
+				<tr>
+					<th>비밀번호 재확인</th>
+					<td><input type="password" name="pwd" id="pwdMatChk"
+						placeholder="비밀번호 재입력" oninput="reCheckPwd()" required>
+						<div class="validation" id="pwdMatChkRet" style="font-size: 15px;"></div>
+					</td>
+				</tr>
+				<tr>
+				<tr>
+					<th>이메일</th>
+					<td><input type="email" name='email' id="emailDupChk"
+						placeholder="이메일" oninput="chcekEmail()" required>
+						<button type="button" id="emailBtn" onclick="">본인인증</button>
+						<br />
+						<div class="validation" id="emailDupChkRet"
+							style="font-size: 15px;"></div></td>
+				</tr>
+
+
+				<tr>
+					<th>인증코드</th>
+					<td><input type="text" name="checkCode" id="checkCode"
+						placeholder="인증번호" required>
+						<button type="button" id="codeBtn" onclick="" tabindex="10">인증번호
+							확인</button>
+						<br />
+						<div class="validation" id="checkCodeRet" style="font-size: 15px;"></div>
+					</td>
+				</tr>
+
+
+			</tbody>
+		</table>
+		</div>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
 	
-	<div><input type='submit' value='추가'>
-	<input type='reset' value='취소'>
-	<input type='button' onclick='location.href="/poom"' value='리스트로'>
+<div class="contents">
+	  <div class="tit2">사업자등록증 입력</div>
+	    <table cellpadding="0" cellspacing="0" class="member_form">
+	      <tbody>
+	        <tr>
+	          <th>사업자 번호</th>
+	          <td>
+	            <input type="text" name="brn" placeholder="사업자 번호"required>
+	          </td>
+	        </tr>
+          <tr>
+	          <th>사본 업로드</th>
+	          <td>
+	          	<input type="file" name='brn_img' required>
+	            <i style="color:#000; font-size:13px; font-style:normal;" id="TaxAccountCopyFileName"></i>
+	            <br/>
+              <span class="subtxt" style=" color:#f24638; padding-top:5px;">※ 사업자등록증 사본을 업로드 하지 않은 경우 세금계산서 발급이 되지 않습니다.</span>
+	          </td>
+	        </tr>
+	        <tr>
+	          <th>상호(매장명)</th>
+	          <td>
+	            <input type="text" name="name" placeholder="매장명" required />
+	          </td>
+	        </tr>
+	        
+	        <tr>
+	          <th>전화번호</th>
+	          <td>
+	          	<input type="tel" name="tel" id="tel"placeholder="전화번호 입력" required>
+				<div class="validation" id="telRet" style="font-size: 15px;"></div>
+              </td>
+	        </tr>
+	        
+	        <tr>
+	          <th>사업장주소</th>
+	          <td>
+	            <input type="text" id="postcode" placeholder="우편번호"
+							name="zipCode" style="width: 75px; margin-right: 1px" required>
+							<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+							<input type="text" id="address" placeholder="주소" name="firstAddr"
+							required><br> <input type="text" id="extraAddress"
+							placeholder="참고항목" name="extraAddr" required> <input
+							type="text" id="detailAddress" placeholder="상세주소 미기입 가능"
+							name="secondAddr">
+	          </td>
+	        </tr>
+	        
+	        <tr>
+	          <th>프로필 사진</th>
+	          <td>
+	            <input type="file" name="prof" value=""> <span
+							class="subtxt" style="color: #f24638; padding-top: 5px;">※
+								프로필 사진은 필수사항이 아닙니다.</span>
+	          </td>
+	        </tr>
+	        
+	        <tr>
+	         <th>매장 사이트</th>
+	          <td>
+	            <input type="text" name="url_c"
+							style="width: 200px; float: left; margin-right: 15px;" value="" />
+	          </td>
+	        </tr>
+	        
+	        
+	        
+	        
+	      </tbody>
+	    </table>
+	</div>
+	<div class="contents">
+			<div class="tit2">소개 멘트</div>
+			<br><textarea rows="5" cols="85" name="ment"></textarea>
+	</div>
+
+
+
+	<!------------------------------------------------------------------------------------------------------->
+
+	<div>
+		<p class="button_area">
+			<button type="submit" style="width: 240px;" class="btnBig btnBlue"
+				tabindex="14">회원가입</button>
+			<button type="button" style="width: 240px;" class="btnBig btnBlue"
+				onclick='location.href="/poom"' tabindex="14">돌아가기</button>
+		</p>
+	</div>
+
 	</div>
 	
-	
-	
-	</fieldset>
-	</form>
+</form>
 
 <jsp:include page="../include/footer.jsp"></jsp:include>
