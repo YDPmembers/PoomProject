@@ -31,9 +31,9 @@
 
 						<div style="height:100%;">
 							<div style="display:none;">게시판 번호: ${rehomeRead.bno}</div>
-							<div style="font-size:3em;"><strong> ${rehomeRead.title}</strong></div><br>
+							<h1 style="font-size:3em;"><strong> ${rehomeRead.title}</strong></h1><br>
 							<div align='right'><strong><a href="#" onClick="window.open('report?bno=${rehomeRead.bno}','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">신고</a>&nbsp;&nbsp;&nbsp;<a href='update?bno=${rehomeRead.bno}'>수정</a>&nbsp;&nbsp;&nbsp;<a href='delete?bno=${rehomeRead.bno}'>삭제</a></strong></div>
-							<div style="font-size:2em;"> 작성자:<strong> ${rehomeRead.id_writer}</strong></div>							
+							<div style="font-size:1.5em;"> 작성자:<strong> ${rehomeRead.id_writer}</strong></div>							
 							<ul>
 							<li> 종 분류:<strong> ${rehomeRead.cateName}</strong></li>
 							 <li>나이:<strong> ${rehomeRead.age}</strong></li>

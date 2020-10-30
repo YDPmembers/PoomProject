@@ -38,10 +38,10 @@
                     <div class="col-lg-4 col-md-6 col-sm-11">
                         <div class="single-cat text-center mb-30">
                             <div class="cat-icon">
-                                <img src="https://technext.github.io/environmentalorganization/assets/img/gallery/services1.png" alt="">
+                        		<img src="https://technext.github.io/environmentalorganization/assets/img/gallery/services3.png" alt="">
                             </div>
                             <div class="cat-cap">
-                                <h5><a href="#">Clean Water</a></h5>
+                                <h5><a href="/poom/rehome/list">분양 리스트</a></h5>
                             </div>
                         </div>
                     </div>
@@ -51,17 +51,17 @@
                                 <img src="https://technext.github.io/environmentalorganization/assets/img/gallery/services2.png" alt="">
                             </div>
                             <div class="cat-cap">
-                                <h5><a href="#">Renewable energy</a></h5>
+                                <h5><a href="/poom/community/list">소통 리스트</a></h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-11">
                         <div class="single-cat text-center mb-30">
                             <div class="cat-icon">
-                                <img src="https://technext.github.io/environmentalorganization/assets/img/gallery/services3.png" alt="">
+                                <img src="https://technext.github.io/environmentalorganization/assets/img/gallery/services1.png" alt="">
                             </div>
                             <div class="cat-cap">
-                                <h5><a href="#">Protect animals</a></h5>
+                                <h5><a href="/poom/notice/list">공지 리스트</a></h5>
                             </div>
                         </div>
                     </div>
