@@ -14,9 +14,23 @@
 <meta charset="UTF-8">
 <title>신규 회원가입</title>
 
-
-
 <jsp:include page="../include/inHead.jsp"></jsp:include>
+
+<!-- 업로드 이미지 미리보기 -->
+<style type="text/css">
+	#prof_wrap,
+	#brn_img_wrap {
+		width: 300px;
+	}
+	#prof_wrap img {
+		max-width: 200px;
+		margin-top: 15px;
+	}
+	#brn_img_wrap img {
+		width: 500px;
+		margin-top: 15px;
+	}
+</style>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <!-- 다음 주소찾기 -->
@@ -41,14 +55,17 @@
 
 
 
-
-
-
-
 <script>
-
+var sel_files = [];
+var sel_filesB = [];
 //유효성 기능 활성화
 $().ready(function(){
+
+	// 업로드 이미지 미리보기
+	$('#prof').on('change', handleImgFilesSelect);
+	$('#brn_img').on('change', handleImgFilesSelectB);
+
+	
 
 	// 아이디 유효성
 	$('#idDupChk').focus(function() {
@@ -71,6 +88,62 @@ $().ready(function(){
 	});
 	
 });
+
+
+//업로드 이미지 미리보기
+function handleImgFilesSelect(e) {
+
+	// 기존에 고른 사진 지우기
+	$('#prof_wrap').empty();
+	
+	var files = e.target.files;
+	var filesArr = Array.prototype.slice.call(files);
+
+	filesArr.forEach( function(f) {
+		
+		if (!f.type.match('image.*')) {
+			alret("이미지 파일만 업로드 가능합니다.");
+			return;
+		}
+
+		sel_files.push(f);
+
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			var img_html = "<img src='"+e.target.result + "' />";
+			$('#prof_wrap').append(img_html);
+		}
+
+		reader.readAsDataURL(f);
+	})
+}
+
+function handleImgFilesSelectB(e) {
+
+	// 기존에 고른 사진 지우기
+	$('#brn_img_wrap').empty();
+	
+	var files = e.target.files;
+	var filesArr = Array.prototype.slice.call(files);
+
+	filesArr.forEach( function(f) {
+		
+		if (!f.type.match('image.*')) {
+			alret("이미지 파일만 업로드 가능합니다.");
+			return;
+		}
+
+		sel_filesB.push(f);
+
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			var img_html = "<img src='"+e.target.result + "' />";
+			$('#brn_img_wrap').append(img_html);
+		}
+
+		reader.readAsDataURL(f);
+	})
+}
 
 
 //----------------------[ 정규식 ]----------------------
@@ -727,9 +800,9 @@ function execDaumPostcode() {
           <tr>
 	          <th>사본 업로드</th>
 	          <td>
-	          	<input type="file" name='brn_img' required>
+	          	<input type="file" name='brn_img' value="" id="brn_img" required>
 	            <i style="color:#000; font-size:13px; font-style:normal;" id="TaxAccountCopyFileName"></i>
-	            <br/>
+	            <div id="brn_img_wrap"></div><br/>
               <span class="subtxt" style=" color:#f24638; padding-top:5px;">※ 사업자등록증 사본을 업로드 하지 않은 경우 세금계산서 발급이 되지 않습니다.</span>
 	          </td>
 	        </tr>
@@ -765,8 +838,9 @@ function execDaumPostcode() {
 	        <tr>
 	          <th>프로필 사진</th>
 	          <td>
-	            <input type="file" name="prof" value=""> <span
-							class="subtxt" style="color: #f24638; padding-top: 5px;">※
+	            <input type="file" name="prof" value="" id="prof" />
+	            <div id="prof_wrap"></div>
+	            <span class="subtxt" style="color: #f24638; padding-top: 5px;">※
 								프로필 사진은 필수사항이 아닙니다.</span>
 	          </td>
 	        </tr>
