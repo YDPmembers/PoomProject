@@ -17,6 +17,6 @@
 
 		<input type='submit' value='찾기'>
 		<input type='reset' value='취소'>
-		<input type='button' onclick='location.href="/poom/login"' value='리스트로'>
+		<input type='button' onclick='location.href="/poom/login"' value='돌아가기'>
 	</form>
 <jsp:include page="../include/footer.jsp"></jsp:include>
