@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Rehome Read</title>
+<title>Community Read</title>
 <jsp:include page="../include/inHead.jsp"></jsp:include>
 </head>
 <jsp:include page="../include/header.jsp"></jsp:include>
@@ -21,24 +21,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
          
-          <p class="mb-4">
-          &nbsp;&nbsp;&nbsp;
-                  <section class="jumbotron text-center" style='background: linear-gradient(to top, lavender, white);'>
-			<div class="container">
-				<h1>
-               <font color='skyblue' size='20px'>POOM</font>
-				</h1>
-				<p class="lead text-muted">
-				</p>
-				      <p>
-				       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='add'">신규 등록</button>
-				      </p>
-			</div>
-		</section>
-
-          </p>
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
 
