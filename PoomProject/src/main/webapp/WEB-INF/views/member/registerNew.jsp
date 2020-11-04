@@ -607,7 +607,7 @@ function execDaumPostcode() {
 	        </tr>
 	        
 	        <tr>
-	          <th>사업장주소</th>
+	          <th>주소</th>
 	          <td>
 	            <input type="text" id="postcode" placeholder="우편번호"
 							name="zipCode" style="width: 75px; margin-right: 1px" required>
